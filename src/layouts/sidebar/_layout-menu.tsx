@@ -12,7 +12,6 @@ import { ChevronDown } from '@/components/icons/chevron-down';
 import { MenuItem } from '@/components/ui/collapsible-menu';
 import WalletConnect from '@/components/nft/wallet-connect';
 import { menuItems } from '@/layouts/sidebar/_menu-items';
-import { LAYOUT_OPTIONS } from '@/lib/constants';
 
 export function MenuItems() {
   const router = useRouter();
@@ -48,7 +47,7 @@ export function MenuItems() {
                           <ActiveLink
                             href={{
                               pathname: dropDownItem.href,
-                              ...(layout !== LAYOUT_OPTIONS.MODERN && {
+                              ...(true && {
                                 query: {
                                   layout,
                                 },
@@ -70,7 +69,7 @@ export function MenuItems() {
             <ActiveLink
               href={{
                 pathname: item.href,
-                ...(layout !== LAYOUT_OPTIONS.MODERN && {
+                ...(true && {
                   query: {
                     layout,
                   },

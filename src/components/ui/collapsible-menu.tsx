@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { useMeasure } from '@/lib/hooks/use-measure';
 import ActiveLink from '@/components/ui/links/active-link';
 import { ChevronDown } from '@/components/icons/chevron-down';
-import { LAYOUT_OPTIONS } from '@/lib/constants';
 
 type MenuItemProps = {
   name?: string;
@@ -87,7 +86,7 @@ export function MenuItem({
                   <ActiveLink
                     href={{
                       pathname: item.href,
-                      ...(layout !== LAYOUT_OPTIONS.MODERN &&
+                      ...(true &&
                         layout !== undefined && {
                           query: {
                             layout,
@@ -108,7 +107,7 @@ export function MenuItem({
         <ActiveLink
           href={{
             pathname: href,
-            ...(layout !== LAYOUT_OPTIONS.MODERN &&
+            ...(true &&
               layout !== undefined && {
                 query: {
                   layout,

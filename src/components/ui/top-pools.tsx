@@ -2,22 +2,16 @@ import cn from 'classnames';
 import { TopPoolsData } from '@/data/static/token-data';
 import CurrencySwapIcons from '@/components/ui/currency-swap-icons';
 import { CoinList } from '@/components/ui/currency-swap-icons';
-import { useLayout } from '@/lib/hooks/use-layout';
-import { LAYOUT_OPTIONS } from '@/lib/constants';
 
 interface TopPoolsProps {
   limit?: number;
 }
 
 export default function TopPools({ limit }: TopPoolsProps) {
-  const { layout } = useLayout();
   return (
     <div
       className={cn(
-        'rounded-lg bg-white p-6 shadow-card dark:bg-light-dark sm:p-8',
-        {
-          'w-full lg:w-[49%]': layout === LAYOUT_OPTIONS.RETRO,
-        }
+        'rounded-lg bg-white p-6 shadow-card dark:bg-light-dark sm:p-8'
       )}
     >
       <h3 className="mb-6 text-base font-medium uppercase">Top Pools</h3>

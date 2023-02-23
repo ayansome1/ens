@@ -12,12 +12,9 @@ import discord from '@/assets/images/discord.svg';
 import forum from '@/assets/images/forum.svg';
 import bank from '@/assets/images/bank.svg';
 import mirror from '@/assets/images/mirror.svg';
-import { useLayout } from '@/lib/hooks/use-layout';
-import { LAYOUT_OPTIONS } from '@/lib/constants';
 
 const VotePage: NextPageWithLayout = () => {
   const router = useRouter();
-  const { layout } = useLayout();
   return (
     <>
       <NextSeo
@@ -27,10 +24,7 @@ const VotePage: NextPageWithLayout = () => {
       <div className="mx-auto w-full max-w-[1160px] text-sm md:pt-14 4xl:pt-24">
         <div
           className={cn('grid ', {
-            'grid-cols-1 gap-6 xs:grid-cols-2 lg:grid-cols-3':
-              layout !== LAYOUT_OPTIONS.RETRO,
-            'grid-cols-2 gap-6 xs:grid-cols-4 lg:grid-cols-6 3xl:grid-rows-1':
-              layout === LAYOUT_OPTIONS.RETRO,
+            'grid-cols-1 gap-6 xs:grid-cols-2 lg:grid-cols-3': true,
           })}
         >
           <motion.div
@@ -40,10 +34,7 @@ const VotePage: NextPageWithLayout = () => {
             className={cn(
               'flex cursor-pointer flex-col items-center justify-center rounded-lg bg-white p-6 text-center shadow-card transition-shadow duration-200 hover:shadow-large dark:bg-light-dark',
               {
-                'xs:col-span-2 sm:col-auto sm:row-span-2':
-                  layout !== LAYOUT_OPTIONS.RETRO,
-                'col-span-6 sm:row-span-4 md:row-span-1 3xl:col-span-2 3xl:row-span-2':
-                  layout === LAYOUT_OPTIONS.RETRO,
+                'xs:col-span-2 sm:col-auto sm:row-span-2': true,
               }
             )}
           >
@@ -66,11 +57,7 @@ const VotePage: NextPageWithLayout = () => {
             rel="noopener noreferrer"
             href="https://discord.com/"
             className={cn(
-              'rounded-lg bg-white p-6 shadow-card transition-shadow duration-200 hover:shadow-large dark:bg-light-dark',
-              {
-                'col-span-6 sm:row-span-4 md:row-span-1 lg:col-span-3 3xl:col-span-2  3xl:row-span-1':
-                  layout === LAYOUT_OPTIONS.RETRO,
-              }
+              'rounded-lg bg-white p-6 shadow-card transition-shadow duration-200 hover:shadow-large dark:bg-light-dark'
             )}
           >
             <span className="inline-block h-auto w-12 sm:w-auto">
@@ -87,11 +74,7 @@ const VotePage: NextPageWithLayout = () => {
             rel="noopener noreferrer"
             href="https://www.discourse.org/"
             className={cn(
-              'rounded-lg bg-white p-6 shadow-card transition-shadow duration-200 hover:shadow-large dark:bg-light-dark',
-              {
-                'col-span-6 sm:row-span-4 md:row-span-1 lg:col-span-3 3xl:col-span-2  3xl:row-span-1':
-                  layout === LAYOUT_OPTIONS.RETRO,
-              }
+              'rounded-lg bg-white p-6 shadow-card transition-shadow duration-200 hover:shadow-large dark:bg-light-dark'
             )}
           >
             <span className="inline-block h-auto w-12 sm:w-auto">
@@ -106,11 +89,7 @@ const VotePage: NextPageWithLayout = () => {
             whileHover={{ scale: 1.015 }}
             onClick={() => router.push('/')}
             className={cn(
-              'cursor-pointer rounded-lg bg-white p-6 shadow-card transition-shadow duration-200 hover:shadow-large dark:bg-light-dark',
-              {
-                'col-span-6 sm:row-span-4 md:row-span-1 lg:col-span-3 3xl:col-span-2  3xl:row-span-1':
-                  layout === LAYOUT_OPTIONS.RETRO,
-              }
+              'cursor-pointer rounded-lg bg-white p-6 shadow-card transition-shadow duration-200 hover:shadow-large dark:bg-light-dark'
             )}
           >
             <div className="h-auto w-12 sm:w-auto">
@@ -127,11 +106,7 @@ const VotePage: NextPageWithLayout = () => {
             rel="noopener noreferrer"
             href="https://forum.mirror.finance/"
             className={cn(
-              'rounded-lg bg-white p-6 shadow-card transition-shadow duration-200 hover:shadow-large dark:bg-light-dark',
-              {
-                'col-span-6 sm:row-span-4 md:row-span-1 lg:col-span-3 3xl:col-span-2  3xl:row-span-1':
-                  layout === LAYOUT_OPTIONS.RETRO,
-              }
+              'rounded-lg bg-white p-6 shadow-card transition-shadow duration-200 hover:shadow-large dark:bg-light-dark'
             )}
           >
             <span className="inline-block h-auto w-11 sm:w-auto">

@@ -1,7 +1,5 @@
 import cn from 'classnames';
 import { LineChart, Line, ResponsiveContainer } from 'recharts';
-import { useLayout } from '@/lib/hooks/use-layout';
-import { LAYOUT_OPTIONS } from '@/lib/constants';
 
 const data = [
   {
@@ -46,15 +44,10 @@ interface Props {
 }
 
 export default function OverviewChart({ chartWrapperClass }: Props) {
-  const { layout } = useLayout();
-
   return (
     <div
       className={cn(
-        'rounded-lg bg-light-dark p-6 text-white shadow-card sm:p-8',
-        {
-          'w-full lg:w-[49%]': layout === LAYOUT_OPTIONS.RETRO,
-        }
+        'rounded-lg bg-light-dark p-6 text-white shadow-card sm:p-8'
       )}
     >
       <h3 className="text-xl font-medium tracking-tighter text-white sm:text-3xl">

@@ -16,6 +16,11 @@ export const menuItems = [
     href: routes.home,
   },
   {
+    name: 'Dashboard',
+    icon: <CompassIcon />,
+    href: routes.dashboard,
+  },
+  {
     name: 'Farm',
     icon: <FarmIcon />,
     href: routes.farms,

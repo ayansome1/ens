@@ -12,12 +12,9 @@ import { ExportIcon } from '@/components/icons/export-icon';
 import { getVotesByStatus } from '@/data/static/vote-data';
 import votePool from '@/assets/images/vote-pool.svg';
 import RootLayout from '@/layouts/_root-layout';
-import { useLayout } from '@/lib/hooks/use-layout';
-import { LAYOUT_OPTIONS } from '@/lib/constants';
 
 const ProposalsPage: NextPageWithLayout = () => {
   const router = useRouter();
-  const { layout } = useLayout();
   const { totalVote: totalActiveVote } = getVotesByStatus('active');
   const { totalVote: totalOffChainVote } = getVotesByStatus('off-chain');
   const { totalVote: totalExecutableVote } = getVotesByStatus('executable');
@@ -92,10 +89,7 @@ const ProposalsPage: NextPageWithLayout = () => {
           className={cn(
             'mb-8 flex flex-col gap-4 rounded-lg bg-white p-5 py-6 shadow-card dark:bg-light-dark xs:p-6 ',
             {
-              'sm:flex-row sm:items-center sm:justify-between':
-                layout !== LAYOUT_OPTIONS.RETRO,
-              'lg:flex-row lg:items-center lg:justify-between':
-                layout === LAYOUT_OPTIONS.RETRO,
+              'sm:flex-row sm:items-center sm:justify-between': true,
             }
           )}
         >

@@ -10,7 +10,6 @@ import { useIsMounted } from '@/lib/hooks/use-is-mounted';
 import { useIsDarkMode } from '@/lib/hooks/use-is-dark-mode';
 import ErrorLightImage from '@/assets/images/404-light.svg';
 import ErrorDarkImage from '@/assets/images/404-dark.svg';
-import { LAYOUT_OPTIONS } from '@/lib/constants';
 
 const ErrorPage: NextPageWithLayout = () => {
   const router = useRouter();
@@ -46,7 +45,7 @@ const ErrorPage: NextPageWithLayout = () => {
         <AnchorLink
           href={{
             pathname: routes.home,
-            ...(layout !== LAYOUT_OPTIONS.MODERN &&
+            ...(true &&
               layout !== undefined && {
                 query: {
                   layout,

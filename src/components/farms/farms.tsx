@@ -11,8 +11,6 @@ import { Listbox } from '@/components/ui/listbox';
 import { Switch } from '@/components/ui/switch';
 import { ChevronDown } from '@/components/icons/chevron-down';
 import { SearchIcon } from '@/components/icons/search';
-import { useLayout } from '@/lib/hooks/use-layout';
-import { LAYOUT_OPTIONS } from '@/lib/constants';
 import HorizontalThreeDots from '@/components/icons/horizontal-three-dots';
 import routes from '@/config/routes';
 
@@ -25,26 +23,15 @@ const sort = [
 ];
 
 function SortList() {
-  const { layout } = useLayout();
   const [selectedItem, setSelectedItem] = useState(sort[0]);
   return (
     <div className="relative w-full lg:w-auto">
       <Listbox value={selectedItem} onChange={setSelectedItem}>
-        {layout === LAYOUT_OPTIONS.RETRO ? (
-          <>
-            <Listbox.Button className="hidden h-11 w-full items-center justify-between rounded-lg pr-2 text-sm text-gray-900 dark:text-white lg:flex xl:flex 3xl:hidden">
-              <HorizontalThreeDots />
-            </Listbox.Button>
-            <Listbox.Button className="flex h-11 w-full items-center justify-between rounded-lg bg-gray-100 px-4 text-sm text-gray-900 dark:bg-light-dark dark:text-white lg:hidden lg:w-40 xl:hidden xl:w-48 3xl:flex">
-              {selectedItem.name} <ChevronDown />
-            </Listbox.Button>
-          </>
-        ) : (
-          <Listbox.Button className="flex h-11 w-full items-center justify-between rounded-lg bg-gray-100 px-4 text-sm text-gray-900 dark:bg-light-dark dark:text-white md:w-36 lg:w-40 xl:w-48">
-            {selectedItem.name}
-            <ChevronDown />
-          </Listbox.Button>
-        )}
+        <Listbox.Button className="flex h-11 w-full items-center justify-between rounded-lg bg-gray-100 px-4 text-sm text-gray-900 dark:bg-light-dark dark:text-white md:w-36 lg:w-40 xl:w-48">
+          {selectedItem.name}
+          <ChevronDown />
+        </Listbox.Button>
+
         <Transition
           as={Fragment}
           enter="ease-out duration-200"
@@ -175,35 +162,23 @@ function Status() {
 }
 
 export default function Farms() {
-  const { layout } = useLayout();
   return (
     <div className="mx-auto w-full">
       <div
         className={cn(
           'mb-6 flex flex-col justify-between gap-4',
-          layout === LAYOUT_OPTIONS.RETRO
-            ? 'lg:flex-row lg:items-center lg:gap-6'
-            : 'md:flex-row md:items-center md:gap-6'
+          'md:flex-row md:items-center md:gap-6'
         )}
       >
         <div className="flex items-center justify-between gap-4">
           <Status />
-          <div
-            className={cn(
-              layout === LAYOUT_OPTIONS.RETRO ? 'lg:hidden' : 'md:hidden'
-            )}
-          >
+          <div className={cn('md:hidden')}>
             <StackedSwitch />
           </div>
         </div>
 
         <div className="flex items-center justify-between gap-4 lg:gap-8">
-          <div
-            className={cn(
-              'hidden shrink-0 ',
-              layout === LAYOUT_OPTIONS.RETRO ? 'lg:block' : 'md:block'
-            )}
-          >
+          <div className={cn('hidden shrink-0 ', 'md:block')}>
             <StackedSwitch />
           </div>
           <Search />

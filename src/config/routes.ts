@@ -6,6 +6,7 @@ const routes = {
   liquidity: '/liquidity',
   liquidityPosition: '/liquidity-position',
   farms: '/farms',
+  dashboard: '/dashboard',
   createNft: '/create-nft',
   nftDetails: '/nft-details',
   search: '/search',
