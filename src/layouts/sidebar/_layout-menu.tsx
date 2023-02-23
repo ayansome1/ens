@@ -15,9 +15,7 @@ import { menuItems } from '@/layouts/sidebar/_menu-items';
 
 export function MenuItems() {
   const router = useRouter();
-  const {
-    query: { layout },
-  } = router;
+
   return (
     <div className="flex items-center xl:px-10 2xl:px-14 3xl:px-16">
       {menuItems.map((item, index) => (
@@ -47,11 +45,6 @@ export function MenuItems() {
                           <ActiveLink
                             href={{
                               pathname: dropDownItem.href,
-                              ...(true && {
-                                query: {
-                                  layout,
-                                },
-                              }),
                             }}
                             className="block rounded-lg px-3 py-2 text-sm font-medium uppercase !text-gray-600 transition hover:bg-gray-50 hover:text-gray-900 dark:!text-white dark:hover:bg-gray-700/50"
                             activeClassName="!bg-gray-100 dark:!bg-gray-700 my-1 last:mb-0 first:mt-0 !text-gray-900 dark:!text-white"
@@ -69,11 +62,6 @@ export function MenuItems() {
             <ActiveLink
               href={{
                 pathname: item.href,
-                ...(true && {
-                  query: {
-                    layout,
-                  },
-                }),
               }}
               className="mx-3 text-[13px] font-medium uppercase text-gray-600 transition first:ml-0 last:mr-0 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white 2xl:mx-3 2xl:text-sm 3xl:mx-4"
               activeClassName="!text-gray-900 dark:!text-white"

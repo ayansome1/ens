@@ -15,10 +15,6 @@ import { Sun } from '@/components/icons/sun';
 import { Moon } from '@/components/icons/moon';
 import { LeftAlign } from '@/components/icons/left-align';
 import { RightAlign } from '@/components/icons/right-align';
-import { ModernLayoutIcon } from '@/components/icons/modern-layout-icon';
-import { RetroLayoutIcon } from '@/components/icons/retro-layout-icon';
-import { MinimalLayoutIcon } from '@/components/icons/minimal-layout-icon';
-import { ClassicLayoutIcon } from '@/components/icons/classic-layout-icon';
 
 const ColorPreset = [
   {

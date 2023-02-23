@@ -13,9 +13,7 @@ import ErrorDarkImage from '@/assets/images/404-dark.svg';
 
 const ErrorPage: NextPageWithLayout = () => {
   const router = useRouter();
-  const {
-    query: { layout },
-  } = router;
+
   const isMounted = useIsMounted();
   const { isDarkMode } = useIsDarkMode();
   return (
@@ -45,12 +43,6 @@ const ErrorPage: NextPageWithLayout = () => {
         <AnchorLink
           href={{
             pathname: routes.home,
-            ...(true &&
-              layout !== undefined && {
-                query: {
-                  layout,
-                },
-              }),
           }}
         >
           <Button shape="rounded">Back to Home</Button>

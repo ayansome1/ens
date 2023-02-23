@@ -9,21 +9,13 @@ import routes from '@/config/routes';
 
 export default function Logo() {
   const router = useRouter();
-  const {
-    query: { layout },
-  } = router;
+
   const isMounted = useIsMounted();
   const { isDarkMode } = useIsDarkMode();
   return (
     <AnchorLink
       href={{
         pathname: routes.home,
-        ...(true &&
-          layout !== undefined && {
-            query: {
-              layout,
-            },
-          }),
       }}
       className="flex w-28 outline-none sm:w-32 4xl:w-36"
     >

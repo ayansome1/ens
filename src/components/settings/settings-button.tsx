@@ -8,10 +8,8 @@ export default function SettingsButton() {
   const { opeSettings } = useSettingsDrawer();
   const [themeColor] = useLocalStorage<string>('criptic-color');
   useThemeColor(themeColor ? themeColor : '#14161a');
-  // set layout based on query param
   const router = useRouter();
   const { query } = router;
-  const selectedLayout = query?.layout && (query.layout as string);
 
   return (
     <>
