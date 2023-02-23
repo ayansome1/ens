@@ -8,7 +8,6 @@ import Button from '@/components/ui/button';
 import { RadioGroup } from '@/components/ui/radio-group';
 import Scrollbar from '@/components/ui/scrollbar';
 import { useLocalStorage } from '@/lib/hooks/use-local-storage';
-import { useDirection } from '@/lib/hooks/use-direction';
 import { useThemeColor } from '@/lib/hooks/use-theme-color';
 import { useSettingsDrawer } from '@/components/settings/settings-context';
 import { Close } from '@/components/icons/close';
@@ -116,39 +115,6 @@ function ThemeSwitcher() {
   );
 }
 
-// Component: DirectionSwitcher
-function DirectionSwitcher() {
-  const [direction, setDirection] = useLocalStorage('criptic-direction', 'ltr');
-  useDirection(direction ? direction : 'ltr');
-  return (
-    <div className="px-6 pt-8">
-      <h4 className="mb-4 text-sm font-medium text-gray-900 dark:text-white">
-        Direction
-      </h4>
-      <RadioGroup
-        value={direction}
-        onChange={setDirection}
-        className="grid grid-cols-2 gap-5 "
-      >
-        <RadioGroup.Option value="ltr">
-          {({ checked }) => (
-            <SwitcherButton title={'LTR'} checked={checked}>
-              <LeftAlign />
-            </SwitcherButton>
-          )}
-        </RadioGroup.Option>
-        <RadioGroup.Option value="rtl">
-          {({ checked }) => (
-            <SwitcherButton title={'RTL'} checked={checked}>
-              <RightAlign />
-            </SwitcherButton>
-          )}
-        </RadioGroup.Option>
-      </RadioGroup>
-    </div>
-  );
-}
-
 // Component: ColorSwitcher
 function ColorSwitcher() {
   const [themeColor, setThemeColor] = useLocalStorage(
@@ -233,7 +199,6 @@ export default function SettingsDrawer() {
               <Scrollbar style={{ height: 'calc(100% - 64px)' }}>
                 <div className="pb-8">
                   <ThemeSwitcher />
-                  <DirectionSwitcher />
                   <ColorSwitcher />
                 </div>
               </Scrollbar>

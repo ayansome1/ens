@@ -1,15 +1,12 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useLocalStorage } from '@/lib/hooks/use-local-storage';
-import { useDirection } from '@/lib/hooks/use-direction';
 import { useThemeColor } from '@/lib/hooks/use-theme-color';
 import { useSettingsDrawer } from '@/components/settings/settings-context';
 
 export default function SettingsButton() {
   const { opeSettings } = useSettingsDrawer();
-  const [direction] = useLocalStorage<string>('criptic-direction');
   const [themeColor] = useLocalStorage<string>('criptic-color');
-  useDirection(direction ? direction : 'ltr');
   useThemeColor(themeColor ? themeColor : '#14161a');
   // set layout based on query param
   const router = useRouter();
