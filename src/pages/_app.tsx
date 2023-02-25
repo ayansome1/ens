@@ -19,12 +19,9 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-// const firaCode = Fira_Code({
-//   weight: ['400', '500', '700'],
-//   style: ['normal'],
-//   subsets: ['latin'],
-//   variable: '--font-body',
-// });
+if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
+  require('../mocks');
+}
 
 function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
   //could remove this if you don't need to page level layout

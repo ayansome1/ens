@@ -1,19 +1,19 @@
 import type { NextPageWithLayout } from '@/types';
 import { NextSeo } from 'next-seo';
 import RootLayout from '@/layouts/_root-layout';
-import Farms from '@/components/farms/farms';
+import LatestNews from '@/components/ui/latest-news';
 
-const FarmsPage: NextPageWithLayout = () => {
+const DashboardPage: NextPageWithLayout = () => {
   return (
     <>
       <NextSeo title="Dashboard" description="ENS HQ" />
-      <Farms />
+      <LatestNews />
     </>
   );
 };
 
-FarmsPage.getLayout = function getLayout(page) {
+DashboardPage.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
 
-export default FarmsPage;
+export default DashboardPage;
