@@ -8,6 +8,9 @@ import DrawersContainer from '@/components/drawer-views/container';
 import SettingsButton from '@/components/settings/settings-button';
 import SettingsDrawer from '@/components/settings/settings-drawer';
 import { WalletProvider } from '@/lib/hooks/use-connect';
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
+
 import 'overlayscrollbars/css/OverlayScrollbars.css';
 // base css file
 import 'swiper/css';
@@ -22,6 +25,8 @@ type AppPropsWithLayout = AppProps & {
 if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
   require('../mocks');
 }
+
+const queryClient = new QueryClient();
 
 function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
   //could remove this if you don't need to page level layout
@@ -41,15 +46,16 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
         enableSystem={false}
         defaultTheme="light"
       >
-        <WalletProvider>
-          {/* <div className={`${firaCode.variable} font-body`}> */}
-          {getLayout(<Component {...pageProps} />)}
-          <SettingsButton />
-          <SettingsDrawer />
-          <ModalsContainer />
-          <DrawersContainer />
-          {/* </div> */}
-        </WalletProvider>
+        <QueryClientProvider client={queryClient}>
+          <WalletProvider>
+            {getLayout(<Component {...pageProps} />)}
+            <SettingsButton />
+            <SettingsDrawer />
+            <ModalsContainer />
+            <DrawersContainer />
+          </WalletProvider>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
       </ThemeProvider>
     </>
   );

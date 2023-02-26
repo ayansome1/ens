@@ -7,7 +7,7 @@ export const handlers = [
       ctx.json({
         latest_news: [
           {
-            news: 'Testing Jump Crypto Just Counter-Exploited the Wormhole Hacker for $140 Million',
+            news: 'MSW $$$$$ Jump Crypto Just Counter-Exploited the Wormhole Hacker for $140 Million',
             link: 'www.google.com',
           },
           {
