@@ -55,6 +55,7 @@ export const handlers = [
             link: 'https://www.google.com',
           },
         ],
+        featured_domain: '8080.eth',
       })
     );
   }),
