@@ -1,7 +1,7 @@
 import type { NextPageWithLayout } from '@/types';
 import { NextSeo } from 'next-seo';
 import RootLayout from '@/layouts/_root-layout';
-import LatestNews from '@/components/ui/latest-news';
+import LatestNews from '@/components/dashboard/latest-news';
 import endpoints from '@/api/endpoints';
 import { useQuery } from 'react-query';
 import reactQueryKeys from '@/common/react-query-keys';
@@ -23,7 +23,24 @@ const DashboardPage: NextPageWithLayout = () => {
   return (
     <>
       <NextSeo title="Dashboard" description="ENS HQ" />
-      <LatestNews data={data?.latest_news} />
+
+      <div>
+        <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-3">
+          <LatestNews data={data?.latest_news} />
+          <div className="grid grid-cols-1 gap-4">
+            <LatestNews data={data?.latest_news} />
+            <LatestNews data={data?.latest_news} />
+          </div>
+          <div className="grid grid-cols-1 gap-4">
+            <LatestNews data={data?.latest_news} />
+            <LatestNews data={data?.latest_news} />
+          </div>
+        </div>
+        <div className="grid grid-cols-1 gap-4">
+          <LatestNews data={data?.latest_news} />
+          <LatestNews data={data?.latest_news} />
+        </div>
+      </div>
     </>
   );
 };
