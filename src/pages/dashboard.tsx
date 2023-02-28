@@ -7,6 +7,10 @@ import { useQuery } from 'react-query';
 import reactQueryKeys from '@/common/react-query-keys';
 import { DashboardData } from '@/types/dashboard';
 import FeaturedDomain from '@/components/dashboard/featured-domain';
+import Newsletter from '@/components/dashboard/newsletter';
+import FeaturedArticles from '@/components/dashboard/featured-articles';
+import TopTweets from '@/components/dashboard/top-tweets';
+import Podcasts from '@/components/dashboard/podcasts';
 
 const DashboardPage: NextPageWithLayout = () => {
   const { isLoading, error, data } = useQuery<DashboardData>(
@@ -20,6 +24,13 @@ const DashboardPage: NextPageWithLayout = () => {
   if (!data) {
     return <></>;
   }
+  const {
+    latest_news,
+    featured_domain,
+    featured_articles,
+    top_tweets,
+    podcasts,
+  } = data;
 
   return (
     <>
@@ -27,19 +38,18 @@ const DashboardPage: NextPageWithLayout = () => {
 
       <div>
         <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-3">
-          <LatestNews data={data.latest_news} />
+          <LatestNews data={latest_news} />
           <div className="grid grid-cols-1 gap-4">
-            <FeaturedDomain domain={data.featured_domain} />
-            <LatestNews data={data?.latest_news} />
+            <FeaturedDomain domain={featured_domain} />
+            <FeaturedArticles data={featured_articles} />
           </div>
           <div className="grid grid-cols-1 gap-4">
-            <LatestNews data={data?.latest_news} />
-            <LatestNews data={data?.latest_news} />
+            <Newsletter />
           </div>
         </div>
         <div className="grid grid-cols-1 gap-4">
-          <LatestNews data={data?.latest_news} />
-          <LatestNews data={data?.latest_news} />
+          <TopTweets tweetlinks={top_tweets} />
+          <Podcasts data={podcasts} />
         </div>
       </div>
     </>

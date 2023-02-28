@@ -1,24 +1,24 @@
-import { NewsType } from '@/types/dashboard';
 import AnchorLink from '../ui/links/anchor-link';
 import Card from '../ui/card';
+import { PodcastType } from '@/types/dashboard';
 
-interface LatestNewsProps {
-  data: NewsType[];
+interface PodcastsProps {
+  data: PodcastType[];
 }
 
-export default function LatestNews({ data }: LatestNewsProps) {
+export default function Podcasts({ data }: PodcastsProps) {
   return (
-    <Card title="Latest News">
+    <Card title="Podcasts">
       <>
-        {data.map((val, index) => {
+        {data.map(({ title, link, date }, index) => {
           return (
             <div key={index} className="mb-6">
               <AnchorLink
                 target="_blank"
-                href={val.link ? val.link : ''}
+                href={link}
                 className="text-sm tracking-tighter text-gray-600 transition hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
               >
-                {val.news}
+                {title} {date}
               </AnchorLink>
             </div>
           );
