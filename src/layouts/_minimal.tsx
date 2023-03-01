@@ -42,12 +42,12 @@ function HeaderRightArea() {
             <SearchButton variant="transparent" className="dark:text-white" />
           </div>
         )}
-        <NotificationButton />
+        {/* <NotificationButton /> */}
         <WalletConnect />
       </div>
 
       <div className="flex items-center lg:hidden">
-        <NotificationButton />
+        {/* <NotificationButton /> */}
         <Hamburger
           isOpen={isOpen}
           onClick={() => openDrawer('DRAWER_MENU')}
