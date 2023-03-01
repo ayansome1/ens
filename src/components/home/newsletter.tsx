@@ -7,8 +7,7 @@ export default function Newsletter() {
     <Card title="Newsletter">
       <>
         <div className="mb-6">
-          For regular updates, and a lot more on ENS
-          <br />
+          For regular updates, and a lot more on ENS{' '}
           <AnchorLink
             target="_blank"
             href={'https://enshq.beehiiv.com/subscribe'}
