@@ -3,8 +3,7 @@ import Image from '@/components/ui/image';
 import AnchorLink from '@/components/ui/links/anchor-link';
 import { useIsMounted } from '@/lib/hooks/use-is-mounted';
 import { useIsDarkMode } from '@/lib/hooks/use-is-dark-mode';
-import lightLogo from '@/assets/images/logo.svg';
-import darkLogo from '@/assets/images/logo-white.svg';
+import logo from '@/assets/images/enshq-logo.png';
 import routes from '@/config/routes';
 
 export default function Logo() {
@@ -21,10 +20,10 @@ export default function Logo() {
     >
       <span className="relative flex overflow-hidden">
         {isMounted && isDarkMode && (
-          <Image src={darkLogo} alt="Criptic" height={24} priority />
+          <Image src={logo} alt="logo" height={24} priority /> // TODO: Use new logo
         )}
         {isMounted && !isDarkMode && (
-          <Image src={lightLogo} alt="Criptic" height={24} priority />
+          <Image src={logo} alt="logo" height={24} priority />
         )}
       </span>
     </AnchorLink>

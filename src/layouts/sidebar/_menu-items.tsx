@@ -15,63 +15,63 @@ export const menuItems = [
     icon: <HomeIcon />,
     href: routes.home,
   },
-  {
-    name: 'Dashboard',
-    icon: <CompassIcon />,
-    href: routes.dashboard,
-  },
-  {
-    name: 'Farm',
-    icon: <FarmIcon />,
-    href: routes.farms,
-  },
-  {
-    name: 'Swap',
-    icon: <ExchangeIcon />,
-    href: routes.swap,
-  },
-  {
-    name: 'Liquidity',
-    icon: <PoolIcon />,
-    href: routes.liquidity,
-  },
-  {
-    name: 'Explore NFTs',
-    icon: <CompassIcon />,
-    href: routes.search,
-  },
-  {
-    name: 'Create NFT',
-    icon: <PlusCircle />,
-    href: routes.createNft,
-  },
-  {
-    name: 'NFT Details',
-    icon: <DiskIcon />,
-    href: routes.nftDetails,
-  },
-  {
-    name: 'Profile',
-    icon: <ProfileIcon />,
-    href: routes.profile,
-  },
-  {
-    name: 'Vote',
-    icon: <VoteIcon />,
-    href: routes.vote,
-    dropdownItems: [
-      {
-        name: 'Explore',
-        href: routes.vote,
-      },
-      {
-        name: 'Vote with pools',
-        href: routes.proposals,
-      },
-      {
-        name: 'Create proposal',
-        href: routes.createProposal,
-      },
-    ],
-  },
+  // {
+  //   name: 'Dashboard',
+  //   icon: <CompassIcon />,
+  //   href: routes.dashboard,
+  // },
+  // {
+  //   name: 'Farm',
+  //   icon: <FarmIcon />,
+  //   href: routes.farms,
+  // },
+  // {
+  //   name: 'Swap',
+  //   icon: <ExchangeIcon />,
+  //   href: routes.swap,
+  // },
+  // {
+  //   name: 'Liquidity',
+  //   icon: <PoolIcon />,
+  //   href: routes.liquidity,
+  // },
+  // {
+  //   name: 'Explore NFTs',
+  //   icon: <CompassIcon />,
+  //   href: routes.search,
+  // },
+  // {
+  //   name: 'Create NFT',
+  //   icon: <PlusCircle />,
+  //   href: routes.createNft,
+  // },
+  // {
+  //   name: 'NFT Details',
+  //   icon: <DiskIcon />,
+  //   href: routes.nftDetails,
+  // },
+  // {
+  //   name: 'Profile',
+  //   icon: <ProfileIcon />,
+  //   href: routes.profile,
+  // },
+  // {
+  //   name: 'Vote',
+  //   icon: <VoteIcon />,
+  //   href: routes.vote,
+  //   dropdownItems: [
+  //     {
+  //       name: 'Explore',
+  //       href: routes.vote,
+  //     },
+  //     {
+  //       name: 'Vote with pools',
+  //       href: routes.proposals,
+  //     },
+  //     {
+  //       name: 'Create proposal',
+  //       href: routes.createProposal,
+  //     },
+  //   ],
+  // },
 ];

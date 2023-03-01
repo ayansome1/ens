@@ -7,7 +7,7 @@ interface FeaturedDomainProps {
 export default function FeaturedDomain({ domain }: FeaturedDomainProps) {
   return (
     <Card title="Featured Domain">
-      <>{domain}</>
+      <div className="text-7xl">{domain}</div>
     </Card>
   );
 }
