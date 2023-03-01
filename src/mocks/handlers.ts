@@ -22,10 +22,6 @@ export const handlers = [
             news: 'SEC Triggers Billion-dollar ‘Bank Run’ on Binance’s BUSD',
             link: 'https://www.google.com',
           },
-          {
-            news: 'BlockFi Accuses Creditors of Being ‘Divorced From Reality',
-            link: 'https://www.google.com',
-          },
         ],
         featured_articles: [
           {
