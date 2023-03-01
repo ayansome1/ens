@@ -42,6 +42,7 @@
     "react-query": "^3.39.3",
     "react-share": "^4.4.0",
     "react-table": "^7.7.0",
+    "react-twitter-embed": "^4.0.4",
     "react-use": "^17.3.2",
     "recharts": "2.1.12",
     "swiper": "^8.4.2",
