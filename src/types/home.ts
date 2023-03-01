@@ -9,7 +9,7 @@ export type PodcastType = {
   date: string;
 };
 
-export type DashboardData = {
+export type HomeData = {
   latest_news: NewsType[];
   featured_domain: string;
   featured_articles: NewsType[];

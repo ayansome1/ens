@@ -11,10 +11,7 @@ import RootLayout from '@/layouts/_root-layout';
 const LiquidityPage: NextPageWithLayout = () => {
   return (
     <>
-      <NextSeo
-        title="Liquidity"
-        description="Criptic - React Next Web3 NFT Crypto Dashboard Template"
-      />
+      <NextSeo title="Liquidity" description="ENS HQ" />
       <Trade>
         <div className="mb-5 border-b border-dashed border-gray-200 pb-5 dark:border-gray-800 xs:mb-7 xs:pb-6">
           <div className="relative flex flex-col gap-3">

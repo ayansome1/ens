@@ -1,12 +1,10 @@
 const routes = {
   home: '/',
-  minimal: '/minimal',
-  retro: '/retro',
+  dashboard: '/dashboard',
   swap: '/swap',
   liquidity: '/liquidity',
   liquidityPosition: '/liquidity-position',
   farms: '/farms',
-  dashboard: '/dashboard',
   createNft: '/create-nft',
   nftDetails: '/nft-details',
   search: '/search',
@@ -18,7 +16,6 @@ const routes = {
   profile: '/profile',
   portfolio: '/profile?view=portfolio',
   history: '/profile?view=history',
-  classic: '/classic',
 };
 
 export default routes;

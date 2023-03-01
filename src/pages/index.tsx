@@ -1,7 +1,7 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import type { NextPageWithLayout } from '@/types';
 import RootLayout from '@/layouts/_root-layout';
-import MinimalScreen from '@/components/screens/minimal-screen';
+import Home from './home';
 
 export const getStaticProps: GetStaticProps = async () => {
   return {
@@ -12,7 +12,7 @@ export const getStaticProps: GetStaticProps = async () => {
 const HomePage: NextPageWithLayout<
   InferGetStaticPropsType<typeof getStaticProps>
 > = () => {
-  return <MinimalScreen />;
+  return <Home />;
 };
 
 HomePage.getLayout = function getLayout(page) {

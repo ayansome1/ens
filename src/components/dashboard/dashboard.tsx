@@ -24,7 +24,7 @@ const topPoolsLimit = (breakpoint: string) => {
   }
 };
 
-export default function MinimalScreen() {
+export default function Dashboard() {
   const [limit, setLimit] = useState(4);
   const breakpoint = useBreakpoint();
   useEffect(() => {
@@ -32,10 +32,7 @@ export default function MinimalScreen() {
   }, [breakpoint]);
   return (
     <>
-      <NextSeo
-        title="Criptic Minimal"
-        description="Criptic - React Next Web3 NFT Crypto Dashboard Template"
-      />
+      <NextSeo title="Dashboard" description="ENS HQ" />
       <div className="">
         <PriceFeedSlider
           limit={4}

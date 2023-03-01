@@ -42,10 +42,7 @@ export default function CreateNFTRetro() {
   const [blockchain, setBlockChain] = useState(BlockchainOptions[0]);
   return (
     <>
-      <NextSeo
-        title="Create NFT"
-        description="Criptic - React Next Web3 NFT Crypto Dashboard Template"
-      />
+      <NextSeo title="Create NFT" description="ENS HQ" />
       <form>
         <div className="mx-auto w-full pt-8 sm:pt-12 lg:px-8 xl:px-10 2xl:px-0">
           <div className="flex items-center justify-between">

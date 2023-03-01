@@ -17,10 +17,7 @@ const VotePage: NextPageWithLayout = () => {
   const router = useRouter();
   return (
     <>
-      <NextSeo
-        title="Vote"
-        description="Criptic - React Next Web3 NFT Crypto Dashboard Template"
-      />
+      <NextSeo title="Vote" description="ENS HQ" />
       <div className="mx-auto w-full max-w-[1160px] text-sm md:pt-14 4xl:pt-24">
         <div
           className={cn('grid ', {

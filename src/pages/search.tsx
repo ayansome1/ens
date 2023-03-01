@@ -17,10 +17,7 @@ const SearchPage: NextPageWithLayout<
   // render default create NFT component
   return (
     <>
-      <NextSeo
-        title="Explore NTF"
-        description="Criptic - React Next Web3 NFT Crypto Dashboard Template"
-      />
+      <NextSeo title="Explore NTF" description="ENS HQ" />
 
       <Search />
     </>

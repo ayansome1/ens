@@ -1,14 +1,14 @@
-import { NewsType } from '@/types/dashboard';
+import { NewsType } from '@/types/home';
 import AnchorLink from '../ui/links/anchor-link';
 import Card from '../ui/card';
 
-interface FeaturedArticlesProps {
+interface LatestNewsProps {
   data: NewsType[];
 }
 
-export default function FeaturedArticles({ data }: FeaturedArticlesProps) {
+export default function LatestNews({ data }: LatestNewsProps) {
   return (
-    <Card title="Featured articles">
+    <Card title="Latest News">
       <>
         {data.map((val, index) => {
           return (

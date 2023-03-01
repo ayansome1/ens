@@ -21,10 +21,7 @@ const AuthorProfilePage: NextPageWithLayout<
   // render default profile
   return (
     <>
-      <NextSeo
-        title="Profile"
-        description="Criptic - React Next Web3 NFT Crypto Dashboard Template"
-      />
+      <NextSeo title="Profile" description="ENS HQ" />
       <div className="relative h-36 w-full overflow-hidden rounded-lg sm:h-44 md:h-64 xl:h-80 2xl:h-96 3xl:h-[448px]">
         <Image
           src={authorData?.cover_image?.thumbnail}

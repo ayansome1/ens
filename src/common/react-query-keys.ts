@@ -1,5 +1,5 @@
 const reactQueryKeys = {
-  DASHBOARD_DATA: 'DASHBOARD_DATA',
+  HOME_DATA: 'HOME_DATA',
 };
 
 export default reactQueryKeys;
