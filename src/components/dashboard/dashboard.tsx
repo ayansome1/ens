@@ -32,7 +32,7 @@ export default function Dashboard() {
   }, [breakpoint]);
   return (
     <>
-      <NextSeo title="Dashboard" description="ENS HQ" />
+      <NextSeo title="Dashboard" description="ENS Gods" />
       <div className="">
         <PriceFeedSlider
           limit={4}

@@ -7,7 +7,7 @@ import CreateNFT from '@/components/create-nft/create-nft';
 const CreateNFTPage: NextPageWithLayout = () => {
   return (
     <>
-      <NextSeo title="Create NFT" description="ENS HQ" />
+      <NextSeo title="Create NFT" description="ENS Gods" />
       <CreateNFT />
     </>
   );

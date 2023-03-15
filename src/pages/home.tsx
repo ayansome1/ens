@@ -34,7 +34,7 @@ const Home: NextPageWithLayout = () => {
 
   return (
     <>
-      <NextSeo title="Home" description="ENS HQ" />
+      <NextSeo title="Home" description="ENS Gods" />
 
       <div>
         <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-3">

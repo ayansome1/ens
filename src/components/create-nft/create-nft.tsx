@@ -48,7 +48,7 @@ export default function CreateNFT() {
   let [blockchain, setBlockChain] = useState(BlockchainOptions[0]);
   return (
     <>
-      <NextSeo title="Create NFT" description="ENS HQ" />
+      <NextSeo title="Create NFT" description="ENS Gods" />
       <div className="mx-auto w-full sm:pt-0 lg:px-8 xl:px-10 2xl:px-0">
         <div className="mb-6 grid grid-cols-3 gap-12 sm:mb-10">
           <div className="col-span-3 flex items-center justify-between lg:col-span-2">

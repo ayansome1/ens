@@ -61,7 +61,7 @@ const notifications = [
 const NotificationPage: NextPageWithLayout = () => {
   return (
     <>
-      <NextSeo title="Notifications" description="ENS HQ" />
+      <NextSeo title="Notifications" description="ENS Gods" />
       <div className="mx-auto w-[660px] max-w-full">
         <div className="mb-7 flex items-center justify-between gap-6">
           <h2 className="text-center text-lg font-medium text-gray-900 dark:text-white sm:text-xl lg:text-2xl">

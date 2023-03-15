@@ -52,7 +52,7 @@ export default function ClassicNFTDetails({
 
   return (
     <>
-      <NextSeo title="Classic NFT Details Page" description="ENS HQ" />
+      <NextSeo title="Classic NFT Details Page" description="ENS Gods" />
       <div className="flex flex-grow">
         <div className="mx-auto flex w-full flex-grow flex-col transition-all xl:max-w-[1360px] 4xl:max-w-[1760px]">
           <div className="relative mb-8 flex flex-grow items-center justify-center md:mb-0 md:pb-7 ltr:md:left-0 rtl:md:right-0 rtl:md:pr-0 lg:fixed lg:mb-0 lg:h-[calc(100%-140px)] lg:w-[calc(100%-492px)] ltr:lg:pl-0 rtl:lg:pr-0 xl:w-[calc(100%-412px)] ltr:xl:pl-0 ltr:xl:pr-12 rtl:xl:pr-0 rtl:xl:pl-12 2xl:w-[calc(100%-404px)] 2xl:pt-0 ltr:2xl:pl-0 3xl:w-[calc(100%-460px)] ltr:4xl:pl-0 rtl:4xl:pr-0">

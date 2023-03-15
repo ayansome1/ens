@@ -80,7 +80,7 @@ const ProposalsPage: NextPageWithLayout = () => {
   ];
   return (
     <>
-      <NextSeo title="Proposal" description="ENS HQ" />
+      <NextSeo title="Proposal" description="ENS Gods" />
       <section className="mx-auto w-full max-w-[1160px] text-sm ">
         <header
           className={cn(

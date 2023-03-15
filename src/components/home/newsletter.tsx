@@ -10,7 +10,7 @@ export default function Newsletter() {
           For regular updates, and a lot more on ENS{' '}
           <AnchorLink
             target="_blank"
-            href={'https://enshq.beehiiv.com/subscribe'}
+            href={'https://thedefigod.substack.com/subscribe'}
           >
             <Button variant="ghost" className="mt-2 xs:mt-3">
               Subscribe

@@ -17,7 +17,7 @@ const SearchPage: NextPageWithLayout<
   // render default create NFT component
   return (
     <>
-      <NextSeo title="Explore NTF" description="ENS HQ" />
+      <NextSeo title="Explore NTF" description="ENS Gods" />
 
       <Search />
     </>

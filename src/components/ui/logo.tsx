@@ -3,7 +3,7 @@ import Image from '@/components/ui/image';
 import AnchorLink from '@/components/ui/links/anchor-link';
 import { useIsMounted } from '@/lib/hooks/use-is-mounted';
 import { useIsDarkMode } from '@/lib/hooks/use-is-dark-mode';
-import logo from '@/assets/images/enshq-logo.png';
+import logo from '@/assets/images/ens-gods-logo.png';
 import routes from '@/config/routes';
 
 export default function Logo() {

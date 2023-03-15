@@ -42,7 +42,7 @@ export default function CreateNFTRetro() {
   const [blockchain, setBlockChain] = useState(BlockchainOptions[0]);
   return (
     <>
-      <NextSeo title="Create NFT" description="ENS HQ" />
+      <NextSeo title="Create NFT" description="ENS Gods" />
       <form>
         <div className="mx-auto w-full pt-8 sm:pt-12 lg:px-8 xl:px-10 2xl:px-0">
           <div className="flex items-center justify-between">

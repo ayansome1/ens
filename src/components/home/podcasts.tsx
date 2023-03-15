@@ -18,7 +18,7 @@ export default function Podcasts({ data }: PodcastsProps) {
                 href={link}
                 className="text-sm tracking-tighter text-gray-600 transition hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
               >
-                {title} {date}
+                {title} | {date}
               </AnchorLink>
             </div>
           );

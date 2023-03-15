@@ -6,7 +6,7 @@ import Dashboard from '@/components/dashboard/dashboard';
 const DashboardPage: NextPageWithLayout = () => {
   return (
     <>
-      <NextSeo title="Dashboard" description="ENS HQ" />
+      <NextSeo title="Dashboard" description="ENS Gods" />
       <Dashboard />
     </>
   );

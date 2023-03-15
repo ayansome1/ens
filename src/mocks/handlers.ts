@@ -49,13 +49,13 @@ export const handlers = [
         featured_domain: '🦸🏿‍♂️.eth',
         podcasts: [
           {
-            title: 'Ep 10: Community VS ENS DAO | ENS HQ Podcast',
+            title: 'Ep 10: Community VS ENS DAO | ENS Gods Podcast',
             link: 'https://enshq.xyz/ep-10-community-vs-ens-dao-ens-hq-podcast/',
             date: '20th Feb 2022',
           },
           {
             title:
-              'Ep 9: Balaji, Tesla.eth and Fight Over 2523.eth | ENS HQ Podcast',
+              'Ep 9: Balaji, Tesla.eth and Fight Over 2523.eth | ENS Gods Podcast',
             link: 'https://enshq.xyz/ep-9-balaji-tesla-eth-and-fight-over-2523-eth-ens-hq-podcast/',
             date: '19th Feb 2022',
           },
