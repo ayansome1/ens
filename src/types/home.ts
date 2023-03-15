@@ -9,9 +9,14 @@ export type PodcastType = {
   date: string;
 };
 
+export type FeaturedDomainType = {
+  name: string;
+  link: string;
+};
+
 export type HomeData = {
   latest_news: NewsType[];
-  featured_domain: string;
+  featured_domain: FeaturedDomainType;
   featured_articles: NewsType[];
   top_tweets: string[];
   podcasts: PodcastType[];
