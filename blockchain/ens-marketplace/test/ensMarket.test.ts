@@ -22,7 +22,7 @@ describe('ENSMarket test', () => {
   before(async () => {
     [owner, ...users] = await ethers.getSigners();
 
-    // deploy diamond, appfacet
+    // deploy ENSMarket
     const ENSMarket = await ethers.getContractFactory('ENSMarket');
     ensMarket = await ENSMarket.deploy(ensAddress, 5);
 
@@ -60,7 +60,7 @@ describe('ENSMarket test', () => {
 
     await expect(
       ensMarket.connect(defiGod).listAsset(tokenId, price)
-    ).to.be.revertedWith('Asset already listed');
+    ).to.be.revertedWithCustomError(ensMarket, 'IdListed');
   });
 
   it('should let user buy listed asset', async () => {
@@ -70,7 +70,7 @@ describe('ENSMarket test', () => {
 
     await expect(
       ensMarket.connect(user2).buyAsset(tokenId, { value: price.sub(1) })
-    ).to.be.revertedWith('Incorrect price');
+    ).to.be.revertedWithCustomError(ensMarket, 'IncorrectPrice');
 
     await expect(ensMarket.connect(user2).buyAsset(tokenId, { value: price }))
       .to.emit(ensMarket, 'AssetBought')
@@ -92,6 +92,6 @@ describe('ENSMarket test', () => {
 
     await expect(
       ensMarket.connect(user2).buyAsset(tokenId, { value: price })
-    ).to.be.revertedWith('Asset not listed');
+    ).to.be.revertedWithCustomError(ensMarket, 'IdNotListed');
   });
 });
