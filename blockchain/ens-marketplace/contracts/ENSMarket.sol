@@ -5,6 +5,14 @@ import "./dependencies/ReentrancyGuard.sol";
 import "./interfaces/IERC721.sol";
 
 contract ENSMarket is ReentrancyGuard {
+	error IdListed();
+	error IdNotListed();
+	error NotSeller();
+	error NotAdmin();
+	error IncorrectPrice();
+	error RoyaltyTransferFailed();
+	error TransferFailed();
+
 	struct ListedAssetStorage {
 		uint256 tokenId;
 		uint256 price;
@@ -44,7 +52,7 @@ contract ENSMarket is ReentrancyGuard {
 
 	function listAsset(uint256 tokenId, uint256 price) external nonReentrant {
 		ListedAssetStorage storage las = _listedAssetsMap[tokenId];
-		require(!las.listed, "Asset already listed");
+		if (las.listed) revert IdListed();
 
 		_ens.safeTransferFrom(msg.sender, address(this), tokenId);
 
@@ -59,8 +67,8 @@ contract ENSMarket is ReentrancyGuard {
 
 	function unlistAsset(uint256 tokenId) external nonReentrant {
 		ListedAssetStorage storage las = _listedAssetsMap[tokenId];
-		require(las.listed, "Asset not listed");
-		require(las.seller == msg.sender, "Only seller can unlist");
+		if (!las.listed) revert IdNotListed();
+		if (las.seller != msg.sender) revert NotSeller();
 
 		delete _listedAssetsMap[tokenId];
 
@@ -71,8 +79,8 @@ contract ENSMarket is ReentrancyGuard {
 
 	function buyAsset(uint256 tokenId) external payable nonReentrant {
 		ListedAssetStorage storage las = _listedAssetsMap[tokenId];
-		require(las.listed, "Asset not listed");
-		require(msg.value == las.price, "Incorrect price");
+		if (!las.listed) revert IdNotListed();
+		if (msg.value != las.price) revert IncorrectPrice();
 
 		address seller = las.seller;
 
@@ -83,17 +91,12 @@ contract ENSMarket is ReentrancyGuard {
 		uint256 royaltyShare = (msg.value * _royalty * 1e18) / 1e20;
 
 		(bool success, ) = _admin.call{ value: royaltyShare }("");
-		require(success, "royalty transfer failed.");
+		if (!success) revert RoyaltyTransferFailed();
 
 		(success, ) = seller.call{ value: msg.value - royaltyShare }("");
-		require(success, "transfer failed.");
+		if (!success) revert TransferFailed();
 
 		emit AssetBought(msg.sender, tokenId, block.timestamp);
-	}
-
-	function setRoyalty(uint256 royalty) external {
-		_onlyAdmin();
-		_royalty = royalty;
 	}
 
 	function setAdmin(address admin) external {
@@ -101,10 +104,27 @@ contract ENSMarket is ReentrancyGuard {
 		_admin = admin;
 	}
 
+	function setRoyalty(uint256 royalty) external {
+		_onlyAdmin();
+		_royalty = royalty;
+	}
+
+	function getAdmin() external view returns (address) {
+		return _admin;
+	}
+
+	function getENS() external view returns (address) {
+		return address(_ens);
+	}
+
 	function getListing(
 		uint256 tokenId
 	) external view returns (ListedAssetStorage memory) {
 		return _listedAssetsMap[tokenId];
+	}
+
+	function getRoyalty() external view returns (uint256) {
+		return _royalty;
 	}
 
 	function onERC721Received(
@@ -117,6 +137,6 @@ contract ENSMarket is ReentrancyGuard {
 	}
 
 	function _onlyAdmin() private view {
-		require(msg.sender == _admin, "!admin");
+		if (msg.sender != _admin) revert NotAdmin();
 	}
 }
