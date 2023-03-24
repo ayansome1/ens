@@ -94,4 +94,55 @@ describe('ENSMarket test', () => {
       ensMarket.connect(user2).buyAsset(tokenId, { value: price })
     ).to.be.revertedWithCustomError(ensMarket, 'IdNotListed');
   });
+
+  it('should let defiGod list their other assets', async () => {
+    const tokenId1 = `3753584128017934794834621713974738912906883384968821393324595841447768811401`;
+    const tokenId2 = `100662936949842813861136395822027782542059385773253925197784418555734630537987`;
+    const tokenId3 = `46724153188015965122445316861426301974083116446114404724576359122453119903965`;
+    const tokenId4 = `27009337699446091010926601184539178365501909135890518460496767186362075422440`;
+    const tokenId5 = `70788121386423669794599000745408992939210048856534642145168469880269210789039`;
+
+    await ens.connect(defiGod).approve(ensMarket.address, tokenId1);
+    await ens.connect(defiGod).approve(ensMarket.address, tokenId2);
+    await ens.connect(defiGod).approve(ensMarket.address, tokenId3);
+    await ens.connect(defiGod).approve(ensMarket.address, tokenId4);
+    await ens.connect(defiGod).approve(ensMarket.address, tokenId5);
+
+    const price = ethers.utils.parseEther('10');
+
+    let latestTimeStamp = await time.latest();
+
+    await expect(ensMarket.connect(defiGod).listAsset(tokenId1, price))
+      .to.emit(ensMarket, 'AssetListed')
+      .withArgs(defiGodAddress, tokenId1, price, latestTimeStamp + 1);
+
+    latestTimeStamp = await time.latest();
+
+    await expect(ensMarket.connect(defiGod).listAsset(tokenId2, price))
+      .to.emit(ensMarket, 'AssetListed')
+      .withArgs(defiGodAddress, tokenId2, price, latestTimeStamp + 1);
+
+    latestTimeStamp = await time.latest();
+
+    await expect(ensMarket.connect(defiGod).listAsset(tokenId3, price))
+      .to.emit(ensMarket, 'AssetListed')
+      .withArgs(defiGodAddress, tokenId3, price, latestTimeStamp + 1);
+
+    latestTimeStamp = await time.latest();
+
+    await expect(ensMarket.connect(defiGod).listAsset(tokenId4, price))
+      .to.emit(ensMarket, 'AssetListed')
+      .withArgs(defiGodAddress, tokenId4, price, latestTimeStamp + 1);
+
+    latestTimeStamp = await time.latest();
+
+    await expect(ensMarket.connect(defiGod).listAsset(tokenId5, price))
+      .to.emit(ensMarket, 'AssetListed')
+      .withArgs(defiGodAddress, tokenId5, price, latestTimeStamp + 1);
+  });
+
+  it('should retrieve all the listings', async () => {
+    const listings = await ensMarket.getAllListings();
+    expect(listings.length).to.equal(5);
+  });
 });
