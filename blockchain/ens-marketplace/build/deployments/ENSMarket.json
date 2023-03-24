@@ -1,5 +1,5 @@
 {
-  "address": "0xF9c0bF1CFAAB883ADb95fed4cfD60133BffaB18a",
+  "address": "0xA3f7BF5b0fa93176c260BBa57ceE85525De2BaF4",
   "network": {
     "chainId": 31337,
     "name": "unknown"
@@ -149,6 +149,41 @@
       "outputs": [
         {
           "type": "address"
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "getAllListings",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "tuple[]",
+          "components": [
+            {
+              "type": "uint256",
+              "name": "tokenId"
+            },
+            {
+              "type": "uint256",
+              "name": "price"
+            },
+            {
+              "type": "uint256",
+              "name": "listTimeStamp"
+            },
+            {
+              "type": "address",
+              "name": "seller"
+            },
+            {
+              "type": "bool",
+              "name": "listed"
+            }
+          ]
         }
       ]
     },
