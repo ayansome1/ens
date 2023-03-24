@@ -1,6 +1,6 @@
 import { ethers } from 'ethers';
 import { ethers as hre_ethers, network } from 'hardhat';
-import { approve, listAsset, buyAsset } from '../apis/api';
+import { approveAssetListing, listAsset, buyAsset } from '../apis/api';
 import { main } from '../scripts/ensMarket.deploy';
 
 describe('API tests', () => {
@@ -24,7 +24,7 @@ describe('API tests', () => {
     );
     const price = ethers.utils.parseEther('10');
 
-    await approve(defiGod, tokenId);
+    await approveAssetListing(defiGod, tokenId);
 
     const tx = await listAsset(defiGod, tokenId, price);
     console.log('test', tx);
@@ -41,4 +41,6 @@ describe('API tests', () => {
     const tx = await buyAsset(buyer, tokenId, value);
     console.log('test2', tx);
   });
+
+  it('should retrieve all the listings', async () => {});
 });
