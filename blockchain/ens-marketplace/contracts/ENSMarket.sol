@@ -21,12 +21,16 @@ contract ENSMarket is ReentrancyGuard {
 		bool listed;
 	}
 
-	IERC721 private _ens;
+	ListedAssetStorage[] private _listedAssetsArray;
 
-	mapping(uint256 => ListedAssetStorage) private _listedAssetsMap;
+	mapping(uint256 => ListedAssetStorage) private _tokenTolistedAssets;
+	mapping(uint256 => uint256) private _tokenToindex;
+
+	IERC721 private _ens;
 
 	address private _admin;
 	uint256 private _royalty;
+	uint256 private _index;
 
 	event AssetListed(
 		address indexed seller,
@@ -51,7 +55,7 @@ contract ENSMarket is ReentrancyGuard {
 	}
 
 	function listAsset(uint256 tokenId, uint256 price) external nonReentrant {
-		ListedAssetStorage storage las = _listedAssetsMap[tokenId];
+		ListedAssetStorage storage las = _tokenTolistedAssets[tokenId];
 		if (las.listed) revert IdListed();
 
 		_ens.safeTransferFrom(msg.sender, address(this), tokenId);
@@ -62,15 +66,19 @@ contract ENSMarket is ReentrancyGuard {
 		las.listTimeStamp = block.timestamp;
 		las.listed = true;
 
+		_listedAssetsArray.push(las);
+		_tokenToindex[tokenId] = _index;
+		++_index;
+
 		emit AssetListed(msg.sender, tokenId, price, block.timestamp);
 	}
 
 	function unlistAsset(uint256 tokenId) external nonReentrant {
-		ListedAssetStorage storage las = _listedAssetsMap[tokenId];
+		ListedAssetStorage storage las = _tokenTolistedAssets[tokenId];
 		if (!las.listed) revert IdNotListed();
 		if (las.seller != msg.sender) revert NotSeller();
 
-		delete _listedAssetsMap[tokenId];
+		_updateListing(tokenId);
 
 		_ens.safeTransferFrom(address(this), msg.sender, tokenId);
 
@@ -78,13 +86,13 @@ contract ENSMarket is ReentrancyGuard {
 	}
 
 	function buyAsset(uint256 tokenId) external payable nonReentrant {
-		ListedAssetStorage storage las = _listedAssetsMap[tokenId];
+		ListedAssetStorage storage las = _tokenTolistedAssets[tokenId];
 		if (!las.listed) revert IdNotListed();
 		if (msg.value != las.price) revert IncorrectPrice();
 
 		address seller = las.seller;
 
-		delete _listedAssetsMap[tokenId];
+		_updateListing(tokenId);
 
 		_ens.safeTransferFrom(address(this), msg.sender, tokenId);
 
@@ -120,7 +128,15 @@ contract ENSMarket is ReentrancyGuard {
 	function getListing(
 		uint256 tokenId
 	) external view returns (ListedAssetStorage memory) {
-		return _listedAssetsMap[tokenId];
+		return _tokenTolistedAssets[tokenId];
+	}
+
+	function getAllListings()
+		external
+		view
+		returns (ListedAssetStorage[] memory)
+	{
+		return _listedAssetsArray;
 	}
 
 	function getRoyalty() external view returns (uint256) {
@@ -134,6 +150,20 @@ contract ENSMarket is ReentrancyGuard {
 		bytes calldata
 	) external pure returns (bytes4) {
 		return this.onERC721Received.selector;
+	}
+
+	function _updateListing(uint256 tokenId) private {
+		delete _tokenTolistedAssets[tokenId];
+
+		_listedAssetsArray[_tokenToindex[tokenId]] = _listedAssetsArray[
+			_listedAssetsArray.length - 1
+		];
+		_tokenToindex[
+			_listedAssetsArray[_tokenToindex[tokenId]].tokenId
+		] = _tokenToindex[tokenId];
+
+		_listedAssetsArray.pop();
+		--_index;
 	}
 
 	function _onlyAdmin() private view {
