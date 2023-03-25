@@ -1,6 +1,8 @@
 import dotenv from 'dotenv';
 dotenv.config();
+import { OwnedNftsResponse } from 'alchemy-sdk';
 import { BigNumber, ethers } from 'ethers';
+import { getDomainsApi } from './getDomains-api';
 import {
   abi as ENSMarketAbi,
   address as ensMarketAddress,
@@ -11,6 +13,18 @@ const ensAddress = process.env.ENS_ADDRESS_MAINNET as string;
 
 const ensMarketInstance = new ethers.Contract(ensMarketAddress, ENSMarketAbi);
 const ensNft = new ethers.Contract(ensAddress, ENSAbi);
+
+/**
+ * Retrieves the domains owned by a specific address.
+ * @param {string} owner - The address of the owner whose domains are to be fetched.
+ * @returns {Promise<OwnedNftsResponse>} An object containing the domains owned by the specified address.
+ */
+export const getDomains = async (owner: string): Promise<OwnedNftsResponse> => {
+  const domains = await getDomainsApi(owner);
+  console.log('domains', domains);
+
+  return domains;
+};
 
 /**
  * Returns the approved address for a specific token ID.
