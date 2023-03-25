@@ -16,7 +16,7 @@ const ensNft = new ethers.Contract(ensAddress, ENSAbi);
 
 /**
  * Retrieves the domains owned by a specific address.
- * @param {string} owner - The address of the owner whose domains are to be fetched.
+ * @param {string} owner - The address or ENS name of the owner whose domains are to be fetched.
  * @returns {Promise<OwnedNftsResponse>} An object containing the domains owned by the specified address.
  */
 export const getDomains = async (owner: string): Promise<OwnedNftsResponse> => {
