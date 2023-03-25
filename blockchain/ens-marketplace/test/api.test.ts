@@ -1,11 +1,20 @@
 import { ethers } from 'ethers';
 import { ethers as hre_ethers, network } from 'hardhat';
-import { approveAssetListing, listAsset, buyAsset } from '../apis/api';
+import {
+  approveAssetListing,
+  listAsset,
+  buyAsset,
+  getDomains,
+} from '../apis/api';
 import { main } from '../scripts/ensMarket.deploy';
 
 describe('API tests', () => {
   before(async () => {
     await main();
+  });
+
+  it('should retireve all the domains owned by an address', async () => {
+    await getDomains('thedefigod.eth');
   });
 
   it('should list an asset', async () => {
