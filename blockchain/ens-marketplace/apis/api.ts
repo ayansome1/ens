@@ -1,5 +1,5 @@
-import dotenv from 'dotenv';
-dotenv.config();
+// import dotenv from 'dotenv';
+// dotenv.config();
 import { OwnedNftsResponse } from 'alchemy-sdk';
 import { BigNumber, ethers } from 'ethers';
 import { getDomainsApi } from './getDomains-api';
@@ -9,10 +9,13 @@ import {
 } from '../build/deployments/ENSMarket.json';
 import { abi as ENSAbi } from '../build/dependencies/ENS.json';
 
-const ensAddress = process.env.ENS_ADDRESS_MAINNET as string;
+// const ensAddress = process.env.ENS_ADDRESS_MAINNET as string;
 
 const ensMarketInstance = new ethers.Contract(ensMarketAddress, ENSMarketAbi);
-const ensNft = new ethers.Contract(ensAddress, ENSAbi);
+const ensNft = new ethers.Contract(
+  `0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85`,
+  ENSAbi
+);
 
 /**
  * Retrieves the domains owned by a specific address.
