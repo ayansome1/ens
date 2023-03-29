@@ -52,6 +52,7 @@ yarn-error.log*
 cache
 artifacts
 package-lock.json
+typechain-types
 
 #yarn files
 .pnp.*
@@ -61,3 +62,5 @@ package-lock.json
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+blockchain/.yarn/install-state.gz
+frontend/.yarn/install-state.gz
