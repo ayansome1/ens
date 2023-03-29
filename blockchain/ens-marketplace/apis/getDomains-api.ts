@@ -1,8 +1,6 @@
 import { Alchemy, Network, OwnedNftsResponse } from 'alchemy-sdk';
-import * as dotenv from 'dotenv';
-dotenv.config();
 
-const API_KEY = process.env.ALCHEMY_API_KEY;
+const API_KEY = process.env.NEXT_PUBLIC_ALCHEMY_API_KEY;
 
 const config = {
   apiKey: API_KEY,

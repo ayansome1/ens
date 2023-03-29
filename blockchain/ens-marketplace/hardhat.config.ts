@@ -5,7 +5,7 @@ import 'hardhat-contract-sizer';
 import '@nomiclabs/hardhat-solhint';
 import '@primitivefi/hardhat-dodoc';
 
-dotenv.config();
+dotenv.config(); // TODO: @sumit Is this needed?
 
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 const ALCHEMY_API_KEY = process.env.ALCHEMY_API_KEY;

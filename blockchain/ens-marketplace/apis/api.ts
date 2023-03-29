@@ -1,5 +1,3 @@
-import dotenv from 'dotenv';
-dotenv.config();
 import { OwnedNftsResponse } from 'alchemy-sdk';
 import { BigNumber, ethers } from 'ethers';
 import { getDomainsApi } from './getDomains-api';
@@ -9,7 +7,7 @@ import {
 } from '../build/deployments/ENSMarket.json';
 import { abi as ENSAbi } from '../build/dependencies/ENS.json';
 
-const ensAddress = process.env.ENS_ADDRESS_MAINNET as string;
+const ensAddress = process.env.NEXT_PUBLIC_ENS_ADDRESS_MAINNET as string;
 
 const ensMarketInstance = new ethers.Contract(ensMarketAddress, ENSMarketAbi);
 const ensNft = new ethers.Contract(ensAddress, ENSAbi);
