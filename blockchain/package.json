@@ -1,6 +1,6 @@
 {
-  "name": "ens-marketplace",
-  "version": "0.0.1",
+  "name": "blockchain",
+  "version": "1.0.0",
   "description": "ENS Marketplace",
   "author": {
     "name": "Sumit Guha",
@@ -13,6 +13,9 @@
     "deploy": "hardhat run scripts/deploy.ts --network $0",
     "verify": "hardhat run scripts/verify.ts --network $0",
     "size": "hardhat size-contracts"
+  },
+  "dependencies": {
+    "cross-env": "5.0.5"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
