@@ -1,6 +1,6 @@
 {
-  "name": "ens-gods",
-  "version": "1.6.0",
+  "name": "frontend",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "clean": "rimraf \"{node_modules,.next,out.cache}\"",
@@ -16,8 +16,11 @@
     "@next/font": "^13.1.1",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.7",
+    "alchemy-sdk": "^2.6.2",
     "axios": "^0.27.2",
+    "blockchain": "1.0.0",
     "classnames": "^2.3.2",
+    "cross-env": "5.0.5",
     "date-fns": "^2.29.3",
     "dayjs": "^1.11.5",
     "ethers": "^5.7.2",

@@ -4,8 +4,8 @@ import { getDomainsApi } from './getDomains-api';
 import {
   abi as ENSMarketAbi,
   address as ensMarketAddress,
-} from '../../../../blockchain/build/deployments/ENSMarket.json';
-import { abi as ENSAbi } from '../../../../blockchain/build/dependencies/ENS.json';
+} from 'blockchain/build/deployments/ENSMarket.json';
+import { abi as ENSAbi } from 'blockchain/build/dependencies/ENS.json';
 
 const ensAddress = process.env.NEXT_PUBLIC_ENS_ADDRESS_MAINNET as string;
 

@@ -1,7 +1,6 @@
 import { FeaturedDomainType } from '@/types/home';
 import Card from '../ui/card';
 import AnchorLink from '../ui/links/anchor-link';
-// import { getDomains } from '../../../blockchain/ens-marketplace/apis/api';
 import { getDomains } from '../../api/blockchain/api';
 
 import { SetStateAction, useState } from 'react';
