@@ -65,3 +65,7 @@ typechain-types
 !.yarn/versions
 blockchain/.yarn/install-state.gz
 frontend/.yarn/install-state.gz
+
+#remix files
+compiler_config.json
+remix-compiler.config.js
