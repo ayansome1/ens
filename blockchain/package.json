@@ -10,7 +10,7 @@
   "scripts": {
     "clean-compile": "hardhat clean && hardhat compile",
     "test": "hardhat test --network localhost",
-    "deploy": "hardhat run scripts/deploy.ts --network $0",
+    "deploy": "hardhat run scripts/ensMarket.deploy.ts --network $0",
     "verify": "hardhat run scripts/verify.ts --network $0",
     "size": "hardhat size-contracts"
   },
