@@ -182,8 +182,11 @@ export const getRoyalty = async (): Promise<any> => {
  * @param {BigNumber} tokenId - The token ID of the listing to retrieve.
  * @returns {Promise<any>} The listing details.
  */
-export const getListing = async (tokenId: BigNumber): Promise<any> => {
-  const listing = await ensMarketInstance.getListing(tokenId);
+export const getListing = async (
+  signer: ethers.Signer,
+  tokenId: BigNumber
+): Promise<any> => {
+  const listing = await ensMarketInstance.connect(signer).getListing(tokenId);
   console.log('listing', listing);
 
   return listing;
@@ -193,9 +196,9 @@ export const getListing = async (tokenId: BigNumber): Promise<any> => {
  * Returns all listings in the ENS marketplace.
  * @returns {Promise<any>} An array of all listings.
  */
-export const getAllListings = async (): Promise<any> => {
+export const getAllListings = async (signer: ethers.Signer): Promise<any> => {
   console.log('ensMarketInstance*****', ensMarketInstance);
-  const allListings = await ensMarketInstance.getAllListings();
+  const allListings = await ensMarketInstance.connect(signer).getAllListings();
   console.log('allListings', allListings);
 
   return allListings;

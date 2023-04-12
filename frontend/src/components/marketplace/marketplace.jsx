@@ -56,10 +56,22 @@ const Marketplace = () => {
     setDomains(result);
   };
 
-  const fetchListings = async () => {
-    const allListings = await getAllListings();
+  const fetchOneListing = async () => {
+    if (!signer) console.log('!signer');
 
-    console.log('singleListing', singleListing);
+    const listing = await getListing(
+      signer,
+      `51707645418839522512491285834276328267545241745200145458361391326977758492639`
+    );
+    console.log('singleListing', listing);
+  };
+
+  const fetchListings = async () => {
+    if (!signer) console.log('!signer');
+
+    const allListings = await getAllListings(signer);
+
+    // console.log('singleListing', singleListing);
 
     console.log('allListings', allListings);
     setListings(allListings);
@@ -77,6 +89,7 @@ const Marketplace = () => {
 
   const handleListAsset = async () => {
     if (!signer || !tokenId || !price) return;
+    console.log(`lisiting...`);
     const tokenIdBN = ethers.BigNumber.from(tokenId);
     const priceBN = ethers.utils.parseEther(price);
     await listAsset(signer, tokenIdBN, priceBN);
@@ -85,6 +98,7 @@ const Marketplace = () => {
 
   const handleBuyAsset = async () => {
     if (!signer || !tokenId || !price) return;
+    console.log(`buying...`);
     const tokenIdBN = ethers.BigNumber.from(tokenId);
     const valueBN = ethers.utils.parseEther(price);
     await buyAsset(signer, tokenIdBN, valueBN);
@@ -122,6 +136,7 @@ const Marketplace = () => {
   useEffect(() => {
     console.log('called');
     fetchListings();
+    console.log('called after');
   }, []);
 
   return (
@@ -183,7 +198,7 @@ const Marketplace = () => {
       <div>
         <h2>Actions</h2>
         <button onClick={connectAccount}>Connect Wallet</button>
-
+        <br />
         <button onClick={handleApproveAssetListing}>
           Approve Asset Listing
         </button>
@@ -193,6 +208,10 @@ const Marketplace = () => {
         <button onClick={handleBuyAsset}>Buy Asset</button>
         <br />
         <button onClick={handleUnlistAsset}>Unlist Asset</button>
+        <br />
+        <button onClick={fetchOneListing}>Get one listing</button>
+        <br />
+        <button onClick={fetchListings}>Get all listings</button>
       </div>
     </div>
   );
