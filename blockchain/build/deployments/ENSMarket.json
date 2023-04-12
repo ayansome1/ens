@@ -1,8 +1,8 @@
 {
-  "address": "0xA3f7BF5b0fa93176c260BBa57ceE85525De2BaF4",
+  "address": "0x2EE5a79d0b892dC29154B1aEa16C7407CEdA6f67",
   "network": {
-    "chainId": 31337,
-    "name": "unknown"
+    "chainId": 5,
+    "name": "goerli"
   },
   "abi": [
     {
