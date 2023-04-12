@@ -11,6 +11,7 @@ import Newsletter from '@/components/home/newsletter';
 import FeaturedArticles from '@/components/home/featured-articles';
 import TopTweets from '@/components/home/top-tweets';
 import Podcasts from '@/components/home/podcasts';
+import Marketplace from '@/components/marketplace/marketplace';
 
 const Home: NextPageWithLayout = () => {
   const { isLoading, error, data } = useQuery<HomeData>(
@@ -41,6 +42,7 @@ const Home: NextPageWithLayout = () => {
           <LatestNews data={latest_news} />
           <div className="grid grid-cols-1 gap-4">
             <FeaturedDomain domain={featured_domain} />
+            <Marketplace />
             <FeaturedArticles data={featured_articles} />
           </div>
           <div className="grid grid-cols-1 gap-4">

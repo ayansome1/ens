@@ -5,7 +5,8 @@ const ensAddress = process.env.NEXT_PUBLIC_ENS_ADDRESS_MAINNET as string;
 
 const config = {
   apiKey: API_KEY,
-  network: Network.ETH_MAINNET,
+  // network: Network.ETH_MAINNET,
+  network: Network.ETH_GOERLI, // TODO: Configure this based on .env variable
 };
 const alchemy = new Alchemy(config);
 

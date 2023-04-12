@@ -46,7 +46,9 @@ export const approveAssetListing = async (
   signer: ethers.Signer,
   tokenId: BigNumber
 ): Promise<any> => {
-  const tx = await ensNft.connect(signer).approve(ensMarketAddress, tokenId);
+  const tx = await ensNft.connect(signer).approve(ensMarketAddress, tokenId, {
+    // gasLimit: ethers.BigNumber.from('100'), // Adjust the gas limit value as needed
+  });
   const receipt = await tx.wait();
   console.log('receipt', receipt);
 
@@ -192,6 +194,7 @@ export const getListing = async (tokenId: BigNumber): Promise<any> => {
  * @returns {Promise<any>} An array of all listings.
  */
 export const getAllListings = async (): Promise<any> => {
+  console.log('ensMarketInstance*****', ensMarketInstance);
   const allListings = await ensMarketInstance.getAllListings();
   console.log('allListings', allListings);
 
