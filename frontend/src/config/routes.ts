@@ -1,5 +1,6 @@
 const routes = {
   home: '/',
+  marketplace: '/marketplace',
   dashboard: '/dashboard',
   swap: '/swap',
   liquidity: '/liquidity',

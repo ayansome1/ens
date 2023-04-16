@@ -1,3 +1,4 @@
+// convert this file to typescript
 import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import {
@@ -15,7 +16,11 @@ import {
   getListing,
   getAllListings,
 } from '../../api/blockchain/api';
+import Button from '../ui/button/button';
+// import Alert from '../ui/alert';
+import toast from 'react-hot-toast';
 
+// align buttons side by side with flex
 const Marketplace = () => {
   const [owner, setOwner] = useState('');
   const [domains, setDomains] = useState([]);
@@ -82,7 +87,10 @@ const Marketplace = () => {
       alert('Please connect your wallet first.');
       return;
     }
-    if (!signer || !tokenId) return;
+    if (!signer || !tokenId) {
+      toast.error('Here is your toast.');
+      return;
+    }
     const tokenIdBN = ethers.BigNumber.from(tokenId);
     await approveAssetListing(signer, tokenIdBN);
   };
@@ -194,24 +202,33 @@ const Marketplace = () => {
           placeholder="Enter price"
         />
       </div>
-
       <div>
-        <h2>Actions</h2>
-        <button onClick={connectAccount}>Connect Wallet</button>
-        <br />
-        <button onClick={handleApproveAssetListing}>
+        <Button
+          onClick={() => setIsExpand(!isExpand)}
+          className="mt-4 w-full"
+          shape="rounded"
+        >
+          Vote Now
+        </Button>
+
+        <Button
+          size="large"
+          shape="rounded"
+          fullWidth={true}
+          color="gray"
+          className="mt-6 uppercase dark:bg-gray-800"
+        >
+          Remove
+        </Button>
+        <Button onClick={connectAccount}>Connect Account</Button>
+        <Button onClick={handleApproveAssetListing}>
           Approve Asset Listing
-        </button>
-        <br />
-        <button onClick={handleListAsset}>List Asset</button>
-        <br />
-        <button onClick={handleBuyAsset}>Buy Asset</button>
-        <br />
-        <button onClick={handleUnlistAsset}>Unlist Asset</button>
-        <br />
-        <button onClick={fetchOneListing}>Get one listing</button>
-        <br />
-        <button onClick={fetchListings}>Get all listings</button>
+        </Button>
+        <Button onClick={handleListAsset}>List Asset</Button>
+        <Button onClick={handleBuyAsset}>Buy Asset</Button>
+        <Button onClick={handleUnlistAsset}>Unlist Asset</Button>
+        <Button onClick={fetchListings}>Fetch Listings</Button>
+        <Button onClick={fetchOneListing}>Fetch One Listing</Button>
       </div>
     </div>
   );

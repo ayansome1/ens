@@ -15,6 +15,11 @@ export const menuItems = [
     icon: <HomeIcon />,
     href: routes.home,
   },
+  {
+    name: 'Marketplace',
+    icon: <CompassIcon />,
+    href: routes.marketplace,
+  },
   // {
   //   name: 'Dashboard',
   //   icon: <CompassIcon />,
@@ -35,11 +40,11 @@ export const menuItems = [
   //   icon: <PoolIcon />,
   //   href: routes.liquidity,
   // },
-  // {
-  //   name: 'Explore NFTs',
-  //   icon: <CompassIcon />,
-  //   href: routes.search,
-  // },
+  {
+    name: 'Explore NFTs',
+    icon: <CompassIcon />,
+    href: routes.search,
+  },
   // {
   //   name: 'Create NFT',
   //   icon: <PlusCircle />,
