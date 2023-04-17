@@ -25,6 +25,7 @@
     "dayjs": "^1.11.5",
     "ethers": "^5.7.2",
     "framer-motion": "^7.3.6",
+    "graphql-request": "^6.0.0",
     "jotai": "^1.8.4",
     "js-cookie": "^3.0.1",
     "little-state-machine": "^4.7.0",
