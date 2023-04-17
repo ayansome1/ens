@@ -72,9 +72,14 @@ const Marketplace = () => {
   };
 
   const fetchListings = async () => {
-    if (!signer) console.log('!signer');
+    if (!signer) {
+      console.log('!signer');
+      return;
+    }
 
     const allListings = await getAllListings(signer);
+    const y = ethers.utils.formatEther(allListings[0].price.toString());
+    console.log('price', y)
 
     // console.log('singleListing', singleListing);
 
