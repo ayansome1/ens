@@ -6,6 +6,7 @@ import {
   address as ensMarketAddress,
 } from 'blockchain/build/deployments/ENSMarket.json';
 import { abi as ENSAbi } from 'blockchain/build/dependencies/ENS.json';
+import { tokenIdToName, getExpiration } from './subgraph-query';
 
 const ensAddress = process.env.NEXT_PUBLIC_ENS_ADDRESS_MAINNET as string;
 
@@ -194,12 +195,49 @@ export const getListing = async (
 
 /**
  * Returns all listings in the ENS marketplace.
+ * @param {ethers.Signer} signer - The signer object used for signing the transaction.
  * @returns {Promise<any>} An array of all listings.
  */
 export const getAllListings = async (signer: ethers.Signer): Promise<any> => {
   console.log('ensMarketInstance*****', ensMarketInstance);
   const allListings = await ensMarketInstance.connect(signer).getAllListings();
   console.log('allListings', allListings);
+  console.log(`allListings.tokenId`, allListings[0].tokenId);
+  const tokenId = allListings[0].tokenId;
+  const name = await tokenIdToName(
+    BigNumber.from(
+      // `55696125984586558013251814490845241837091415446836079729086429988079386944398`  // thedefigod.eth tokenId for testing on mainnet
+      tokenId
+    )
+  );
+  console.log('name', name.domains[0].labelName);
+
+  const expiration = await getExpiration(`${name.domains[0].labelName}.eth`);
+  console.log('expiration', expiration);
 
   return allListings;
+};
+
+/**
+ * Returns the name of an asset based on its token ID.
+ * @param {BigNumber} tokenId - The token ID of the asset to retrieve the name of.
+ * @returns {Promise<any>} The name of the asset.
+ */
+export const getNameFromTokenId = async (tokenId: BigNumber): Promise<any> => {
+  const name = await tokenIdToName(tokenId);
+  console.log('name', name);
+
+  return name;
+};
+
+/**
+ * Returns the expiration time of an ENS name.
+ * @param {string} name - The name to retrieve the expiration time of.
+ * @returns {Promise<any>} The expiration time of the name.
+ */
+export const getExpirationOfName = async (name: any): Promise<any> => {
+  const expiration = await getExpiration(name);
+  console.log('expiration', expiration);
+
+  return expiration;
 };
